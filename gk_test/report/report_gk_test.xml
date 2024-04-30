@@ -1,0 +1,39 @@
+<odoo>
+<!--    <record id="gk_report_test_record" model="ir.actions.report">-->
+<!--        <field name="name">Test report YO!</field>-->
+<!--        <field name="model">mrp.production</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">gk_test.report_gk_test</field>-->
+<!--        <field name="report_file">gk_test.report_gk_test</field>-->
+<!--        <field name="binding_model_id" ref="model_mrp_production"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--    </record>-->
+
+<!--    <record id="gk_report_test_record1" model="ir.actions.report">-->
+<!--        <field name="name">Test report YO!</field>-->
+<!--        <field name="model">purchase.order</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+<!--        <field name="report_name">gk_test.report_gk_test</field>-->
+<!--        <field name="report_file">gk_test.report_gk_test</field>-->
+<!--        <field name="binding_model_id" ref="purchase.model_purchase_order"/>-->
+<!--        <field name="binding_type">report</field>-->
+<!--        <field name="paperformat_id" ref="product.paperformat_label_sheet_dymo"/>-->
+<!--    </record>-->
+
+    <template id="report_gk_test">
+        <t t-call="web.html_container">
+            <h1> Hello World!!!</h1>
+            <h2> Line 2 </h2>
+            <t t-foreach="docs" t-as="o">
+                <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                <div t-if="o.date_order" class="col-3 bm-2">
+                    <strong>Order Date:</strong>
+                    <p t-field="o.date_order" class="m-0"/>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+
+

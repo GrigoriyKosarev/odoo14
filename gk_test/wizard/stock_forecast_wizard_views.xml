@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gk_stock_forecast_wizard_form" model="ir.ui.view">
+        <field name="name">gk.stock.forecast.wizard.form</field>
+        <field name="model">gk.stock.forecast.wizard</field>
+        <field name="arch" type="xml">
+            <form string="TEST WIZARD stock forecast">
+                <field name="test_field"/>
+                <field name="test_product_id"/>
+                <footer>
+                    <button string="Stock forecast" name="get_stock_forecast" type="object" class="btn-primary"/>
+                    <button string="Apply" name="apply_action" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mrp_bom_line_list" model="ir.actions.act_window">
+        <field name="name">TEST WIZARD stock forecast</field>
+        <field name="res_model">gk.stock.forecast.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+<!--        <field name="view_id" ref="gk_mrp_bom_copy_wizard.view_mrp_bom_line_tree"/>-->
+    </record>
+
+<!--    gk.stock.forecast.wizard-->
+<!--    gk_stock_forecast_wizard-->
+    <record id="action_gk_stock_forecast_wizard" model="ir.actions.server">
+        <field name="name">TEST</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_gk_stock_forecast_wizard"/>
+<!--        <field name="binding_model_id" ref="mrp.model_mrp_bom_line"/>-->
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard1()
+        </field>
+    </record>
+
+    <menuitem id="gk_forecast_wizard_menu"
+              action="action_gk_stock_forecast_wizard"
+              name="gk TEST forecast wizard"
+              parent="mrp.menu_mrp_manufacturing"
+              sequence="34"/>
+
+</odoo>

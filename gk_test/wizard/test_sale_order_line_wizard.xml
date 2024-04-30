@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gk_sale_order_line_test_wizard_form" model="ir.ui.view">
+        <field name="name">gk.sale.order.line.test.wizard.form</field>
+        <field name="model">gk.sale.order.line.test.wizard</field>
+        <field name="arch" type="xml">
+            <form string="TEST WIZARD">
+                <field name="test_field"/>
+                <field name="order_id"/>
+                <footer>
+                    <button string="Set lot (sale.order.line)" name="set_lot_action" type="object" class="btn-primary"/>
+                    <button string="Apply" name="apply_action" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_gk_sale_order_line_test_list" model="ir.actions.act_window">
+        <field name="name">TEST WIZARD</field>
+        <field name="res_model">gk.sale.order.line.test.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+<!--        <field name="view_id" ref="gk_mrp_bom_copy_wizard.view_mrp_bom_line_tree"/>-->
+    </record>
+
+
+    <record id="action_gk_sale_order_line_test_wizard" model="ir.actions.server">
+        <field name="name">TEST</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_gk_sale_order_line_test_wizard"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    <menuitem id="gk_sale_order_line_test_menu"
+              action="action_gk_sale_order_line_test_wizard"
+              name="gk TEST sale order line"
+              parent="gk_add_fields.gk_menu_technical"/>
+
+</odoo>

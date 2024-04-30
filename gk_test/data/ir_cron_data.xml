@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_gk_update_product_update_public_description" model="ir.cron">
+        <field name="name">Update field 'public_description' in product.template</field>
+        <field name="model_id" ref="gk_update_product.model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">model.update_public_description()</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+</odoo>

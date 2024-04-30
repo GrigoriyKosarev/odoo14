@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+gk_stock_forecast_wizard_user,access___gk_stock_forecast_wizard_user,model_gk_stock_forecast_wizard,base.group_user,1,1,1,1
+gk_test_wizard_user,access__gk_test_wizard_user,model_gk_test_wizard,base.group_user,1,1,1,1
+gk_sale_order_line_test_wizard_user,access__gk_sale_order_line_test_wizard_user,model_gk_sale_order_line_test_wizard,base.group_user,1,1,1,1

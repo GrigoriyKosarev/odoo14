@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_gk_test_form" model="ir.ui.view">
+        <field name="name">gk.test.wizard.form</field>
+        <field name="model">gk.test.wizard</field>
+        <field name="arch" type="xml">
+            <form string="TEST WIZARD">
+                <field name="test_field"/>
+                <field name="test_product_id"/>
+                <field name="test_product_template_id"/>
+                <field name="web_table_stock_value"/>
+                <footer>
+                    <button string="Add barcodes for products(find template)" name="add_additional_barcodes_action" type="object" class="btn-primary"/>
+                    <button string="Apply" name="apply_action" type="object" class="btn-primary"/>
+                    <button string="Test" name="test_action" type="object" class="btn-primary"/>
+                    <button string="Set web stock" name="set_web_table_stock_value" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_mrp_bom_line_list" model="ir.actions.act_window">
+        <field name="name">TEST WIZARD</field>
+        <field name="res_model">gk.test.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+<!--        <field name="view_id" ref="gk_mrp_bom_copy_wizard.view_mrp_bom_line_tree"/>-->
+    </record>
+
+
+    <record id="action_gk_test_wizard" model="ir.actions.server">
+        <field name="name">TEST</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_gk_test_wizard"/>
+<!--        <field name="binding_model_id" ref="mrp.model_mrp_bom_line"/>-->
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_open_wizard()
+        </field>
+    </record>
+
+    <menuitem id="gk_test_menu"
+              action="action_gk_test_wizard"
+              name="gk TEST"
+              parent="gk_add_fields.gk_menu_technical"/>
+
+<!--    <menuitem id="gk_test_menu"-->
+<!--              action="action_gk_test_wizard"-->
+<!--              name="gk TEST"-->
+<!--              parent="gk_add_fields.gk_menu_technical"-->
+<!--              sequence="33"/>-->
+
+</odoo>
